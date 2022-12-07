@@ -1,8 +1,15 @@
+const Budget = require("../models/budget")
+
 module.exports = {
     index,
+    new: newBudget
 }
 
 function index(req, res) {
     console.log('Index function ran')
     res.render('budgets/index')
+}
+
+function newBudget(req, res) {
+    res.render('budgets/new');
 }

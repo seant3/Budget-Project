@@ -4,5 +4,6 @@ const budgetCtrl = require('../controllers/budgets');
 const isLoggedIn = require('../config/auth')
 
 router.get('/', budgetCtrl.index);
+router.get('/new', isLoggedIn, budgetCtrl.new)
 
 module.exports = router;
