@@ -10,21 +10,21 @@
     <title>Budget Homepage</title>
 </head>
 <body>
-      <h1>Index Page</h1>
-      <table id="list">
-        <thead>
+    <h1>Budget List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% budgets.forEach(b => { %>
           <tr>
-            <th>Title</th>
-            <th></th>
+            <td><%= b.title %></td>
+            <td><%= b._id %></td>
           </tr>
-        </thead>
-        <tbody>
-          <% budgets.forEach(function(b) { %>
-            <tr>
-              <td><%= b.title %></td>
-            </tr>
-            <% }); %>
-          </tbody>
-        </table>
+        <% }) %>
+      </tbody>
+    </table>
 </body>
 </html>

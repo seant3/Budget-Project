@@ -1,4 +1,3 @@
-const budget = require("../models/budget");
 const Budget = require("../models/budget")
 
 module.exports = {
@@ -10,27 +9,26 @@ module.exports = {
 function index(req, res) {
     console.log("Index function ran")
     Budget.find({}, function(err, budgetDocs) {
+        console.log(budgetDocs, ",<<<<<<<<< budgetDocs")
         res.render("budgets/index", { budgets: budgetDocs });
     });
     
 }
 
 function newBudget(req, res) {
+    console.log("New Budget function - controllers/budgets")
     res.render("budgets/new");
 }
 
 function create(req, res) {
-    console.log(req.body, " after")
+    console.log("You created!!! - controllers/budgets")
     const budget = new Budget(req.body);
     budget.save(function(err) {
-        if(err) {
-            console.log("=====================");
-            console.log(err);
-            return res.render("movies/new");
-        }
+        if(err) return res.render("budgets/new");
+        
         // console.log("=============budgetDoc from the db");
         // console.log(budgetDoc);
-        console.log(budget)
-        res.redirect("/budgets");
+        console.log(budget, "<<<<<<<< Budget")
+        res.redirect("/budgets/");
     });
 }
