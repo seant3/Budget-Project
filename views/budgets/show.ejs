@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+    <div>Budget Name:</div>
+    <div><%= budget.title %> </div>
+    <div>Transaction Details:</div>
+    <div><%= budget.transactions %> </div>
+
+
+</br></br><div>Transactions:</div>
+<section>
+  <table>
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    <tbody>
+        <a href="./<%= budget._id %>/transactions/new">New Transaction</a>
+
+      <% transactions.forEach(function(t) { %>
+          <tr>
+            <td><%= t.description %></td>
+            <td><%= t.amount %></td>
+            <td><%= t.date %></td>
+            <td><form action=<%= `/budgets/${t._id}/?_method=DELETE` %> method="post" id="deletetransaction">
+                <button type="submit">DELETE</button>
+            </form></td>
+          </tr>
+        <% }); %>
+    </tbody>
+  </table>
+</section>

@@ -6,9 +6,9 @@ const transactionSchema = new Schema({
         type: String,
         required: true
     },
-    amount: Number,
-    date: Date,
-
+    amount: {type: Number, min: 0},
+    date: {type: Date},
+    budget: [{type: Schema.Types.ObjectId, ref: 'Budget'}]
 })
 
 module.exports = mongoose.model("Transaction", transactionSchema);

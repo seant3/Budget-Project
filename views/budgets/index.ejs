@@ -21,7 +21,10 @@
         <% budgets.forEach(b => { %>
           <tr>
             <td><%= b.title %></td>
-            <td><%= b._id %></td>
+            <td><a href="/budgets/<%= b._id %> ">Details</a></td>
+            <td><form action=<%= `/budgets/${b._id}/?_method=DELETE` %> method="post" id="deleteBudget">
+                <button type="submit">DELETE</button>
+            </form></td>
           </tr>
         <% }) %>
       </tbody>

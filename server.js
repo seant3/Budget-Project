@@ -55,7 +55,7 @@ app.use(function (req, res, next) {
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
 app.use('/budgets', budgetsRoutes);
-app.use('/transactions', transactionsRoutes)
+app.use('/', transactionsRoutes)
 
 
 // invalid request, send 404 page

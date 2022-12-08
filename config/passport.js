@@ -43,7 +43,7 @@ passport.deserializeUser(function(userId, cb) {
   // be availible in every Single controller function, so you always know the logged in user
     User.findById(userId).then(function(userDoc) {
 
-      console.log('inside deserializeUser', userDoc)
+      // console.log('inside deserializeUser', userDoc)
       cb(null, userDoc);
     });
 });
