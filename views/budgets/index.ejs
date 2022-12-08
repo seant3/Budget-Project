@@ -10,6 +10,21 @@
     <title>Budget Homepage</title>
 </head>
 <body>
-      <h1>Budget Me Now!</h1>
+      <h1>Index Page</h1>
+      <table id="list">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% budgets.forEach(function(b) { %>
+            <tr>
+              <td><%= b.title %></td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
 </body>
 </html>

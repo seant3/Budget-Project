@@ -8,25 +8,29 @@ module.exports = {
 }
 
 function index(req, res) {
-    console.log('Index function ran')
-    res.render('budgets/index')
+    console.log("Index function ran")
+    Budget.find({}, function(err, budgetDocs) {
+        res.render("budgets/index", { budgets: budgetDocs });
+    });
+    
 }
 
 function newBudget(req, res) {
-    res.render('budgets/new');
+    res.render("budgets/new");
 }
 
 function create(req, res) {
     console.log(req.body, " after")
-
-    Budget.create(req.body, function(err, budgetDoc) {
+    const budget = new Budget(req.body);
+    budget.save(function(err) {
         if(err) {
             console.log("=====================");
             console.log(err);
-            return res.send("check the terminal for errors")
+            return res.render("movies/new");
         }
         // console.log("=============budgetDoc from the db");
         // console.log(budgetDoc);
-        res.redirect('/budgets/new');
+        console.log(budget)
+        res.redirect("/budgets");
     });
 }
