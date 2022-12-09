@@ -14,7 +14,7 @@ async function deleteBudget (req, res, next) {
         console.log("Delete something ====BUDGETS")
         const budgetDoc = await Budget.findByIdAndDelete(req.params.id);
         res.redirect("/budgets")
-    } catch {
+    } catch (err){
         console.log(err);
         res.send("Check Terminal for your errors")
     }
@@ -22,6 +22,8 @@ async function deleteBudget (req, res, next) {
 
 function show(req, res) {
     Budget.findById(req.params.id, function(err, budgetDoc) {
+        console.log(err, "=========error")
+        console.log(budgetDoc, "========BudgetDoc")
         Transaction.find({budget: budgetDoc._id}, function(err, transDoc){
             res.render("budgets/show", {budget: budgetDoc, transactions: transDoc});
         })
