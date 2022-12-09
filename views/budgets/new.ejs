@@ -12,8 +12,11 @@
 <body>
     <h2>Your Budgeting Journey Starts Here!</h2>
     <form action="/budgets" method="POST">
-        <label>Name this file:
-            <input type="text" name="title">
+        <label>Name this budget (ex: Month):
+            <input type="text" name="title"></label>
+            <br>
+        <label>Total amount to budget:</label>
+            <input type="number" name="amount">
         </label><br>
         <input type="submit" value="Start Budget">
     </form>

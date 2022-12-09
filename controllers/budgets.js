@@ -14,10 +14,9 @@ module.exports = {
 async function update (req, res, next) {
     try {
         const updateDoc = await Budget.updateOne({_id: req.params.id}, {
-            title: req.body.title
+            title: req.body.title,
+            amount: req.body.amount
         })
-
-        console.log(updateDoc, "=========== UpdateDoc")
         res.redirect("/budgets")
     } catch (err) {
         console.log(err);

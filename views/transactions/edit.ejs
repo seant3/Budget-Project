@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+
+<title>Edit Transaction</title>
+</head>
+<body>
+    <h2>Edit your transaction</h2>
+    <form action="/transactions/<%= edit._id %>?_method=PUT" method="POST">
+        <label>Description
+            <input type="text" name="description" value=<%= edit.description %>>
+        </label><br>
+        <label>Amount
+            <input type="number" name="amount" min:0 value=<%= edit.amount %>>
+        </label><br>
+        <label>Transaction Date
+            <input type="datetime-local" name="date" value=<%= edit.date %>>
+        </label>
+        <input type="submit" value="Edit Transaction">
+    </form>
+</body>
+</html>

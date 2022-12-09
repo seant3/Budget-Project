@@ -1,9 +1,12 @@
+
+
 <%- include('../partials/header') %>
 
     <div>Budget Name:</div>
     <div><%= budget.title %> </div>
-    <div>Transaction Details:</div>
-    <div><%= budget.transactions %> </div>
+    <div>Budgeted Amount:</div>
+        <%=  %> 
+    <div>$<%= budget.amount %> </div>
 
 
 </br></br><div>Transactions:</div>
@@ -19,6 +22,7 @@
 
       <% transactions.forEach(function(t) { %>
           <tr>
+            <td><a href="/transactions/<%= t._id %>/edit">Edit</a></td>
             <td><%= t.description %></td>
             <td><%= t.amount %></td>
             <td><%= t.date %></td>
