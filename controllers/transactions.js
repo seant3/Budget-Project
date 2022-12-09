@@ -14,12 +14,12 @@ async function deleteTransaction (req, res, next) {
 //     res.redirect(`/budgets/show`);
 
     try {
-        console.log("Delete something ====TRANSACTIONS")
+        // console.log("Delete something ====TRANSACTIONS")
         const budget = new Budget(req.body)
         const tranDoc = await Transaction.findByIdAndDelete(req.params.id);
-        console.log(req.params.id, "============REQ PARAMS ID")
-        console.log(tranDoc.budget, "=========== Console log of tranDoc")
-        console.log(budget, "===========info for budget")
+        // console.log(req.params.id, "============REQ PARAMS ID")
+        // console.log(tranDoc.budget, "=========== Console log of tranDoc")
+        // console.log(budget, "===========info for budget")
         
         res.redirect(`/budgets/${tranDoc.budget._id}`)
     } catch (err) {

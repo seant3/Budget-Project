@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+
+<title>Edit Budget</title>
+</head>
+<body>
+    <h2>Edit your budget</h2>
+    <form action="/budgets/<%= edit._id %>?_method=PUT" method="POST">
+        <label>Name:
+            <input type="text" name="title" value= <%= edit.title %>>
+        </label><br>
+        <input type="submit" name="Submit" value="Edit">
+    </form>
+</body>
+</html>

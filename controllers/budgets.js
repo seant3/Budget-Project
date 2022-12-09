@@ -6,7 +6,34 @@ module.exports = {
     new: newBudget,
     create,
     show,
-    delete: deleteBudget
+    delete: deleteBudget,
+    edit,
+    update
+}
+
+async function update (req, res, next) {
+    try {
+        const updateDoc = await Budget.updateOne({_id: req.params.id}, {
+            title: req.body.title
+        })
+
+        console.log(updateDoc, "=========== UpdateDoc")
+        res.redirect("/budgets")
+    } catch (err) {
+        console.log(err);
+        res.send("Check Terminal for your errors - update function")
+    }
+}
+
+async function edit (req, res, next) {
+    try {
+        const editDoc = await Budget.findById(req.params.id);
+        console.log(editDoc, "=========editDoc")
+        res.render("budgets/edit", {edit: editDoc});
+    } catch (err) {
+        console.log(err);
+        res.send("Check Terminal for your errors")
+    }
 }
 
 async function deleteBudget (req, res, next) {

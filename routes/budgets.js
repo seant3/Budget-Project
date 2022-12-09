@@ -9,5 +9,7 @@ router.get('/', budgetCtrl.index);
 router.post('/', budgetCtrl.create);
 router.get('/:id', budgetCtrl.show)
 router.delete('/:id', budgetCtrl.delete)
+router.get('/:id/edit', budgetCtrl.edit)
+router.put('/:id', budgetCtrl.update)
 
 module.exports = router;
