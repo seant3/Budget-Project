@@ -22,7 +22,7 @@
             <td><%= t.description %></td>
             <td><%= t.amount %></td>
             <td><%= t.date %></td>
-            <td><form action=<%= `/budgets/${t._id}/?_method=DELETE` %> method="post" id="deletetransaction">
+            <td><form action= "/budgets/<%= t._id %>/transactions?_method=DELETE" method="POST" id="deletetransaction">
                 <button type="submit">DELETE</button>
             </form></td>
           </tr>

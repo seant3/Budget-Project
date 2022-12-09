@@ -11,7 +11,7 @@ module.exports = {
 
 async function deleteBudget (req, res, next) {
     try {
-        console.log("Delete something ====")
+        console.log("Delete something ====BUDGETS")
         const budgetDoc = await Budget.findByIdAndDelete(req.params.id);
         res.redirect("/budgets")
     } catch {
