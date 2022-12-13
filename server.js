@@ -1,5 +1,6 @@
 // load the env consts
 require('dotenv').config();
+const MongoStore = require('connect-mongo');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
@@ -36,6 +37,9 @@ app.use(cookieParser());
 app.use(methodOverride('_method'));
 // mount the session middleware
 app.use(session({
+  store: MongoStore.create({
+    mongoUrl: process.env.DATABASE_URL
+  }),
   secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true
