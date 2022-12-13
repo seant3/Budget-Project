@@ -5,14 +5,30 @@
 </head>
 <body>
     <h2>Edit your budget</h2>
+    <% if (user.equals(user._id)) { %>
     <form action="/budgets/<%= edit._id %>?_method=PUT" method="POST">
         <label>Name:
-            <input type="text" name="title" value= <%= edit.title %>>
+            <select name="month" value= <%= edit.month %>>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
         </label><br>
-        <label>Total amount to budget:</label>
+        <label>Edit your income:</label>
             <input type="number" name="amount" value = <%= edit.amount%>>
             <br><br>
         <input type="submit" name="Submit" value="Submit">
     </form>
+    <% } %>
+
 </body>
 </html>

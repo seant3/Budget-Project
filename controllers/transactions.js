@@ -14,7 +14,7 @@ async function update (req, res, next) {
     const transaction = await Transaction.findById(req.params.id)
     
     try {
-        const updateDoc = await Transaction.updateOne({_id: req.params.id}, {
+        await Transaction.updateOne({_id: req.params.id}, {
             description: req.body.description,
             amount: req.body.amount,
             date: req.body.date
@@ -62,6 +62,8 @@ function create(req, res) {
     // console.log("You created!!! - controllers/transactions")
     req.body.budget = req.params.id
     // console.log(req.body, "req.body console")
+    budget.user = req.user._id;
+
     const transaction = new Transaction(req.body)
 
     transaction.save(req.body, function (err, tranDoc) {

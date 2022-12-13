@@ -4,12 +4,12 @@ const budgetCtrl = require('../controllers/budgets');
 const isLoggedIn = require('../config/auth');
 const budget = require('../models/budget');
 
-router.get('/new', budgetCtrl.new);
-router.get('/', budgetCtrl.index);
-router.post('/', budgetCtrl.create);
-router.get('/:id', budgetCtrl.show)
-router.delete('/:id', budgetCtrl.delete)
-router.get('/:id/edit', budgetCtrl.edit)
-router.put('/:id', budgetCtrl.update)
+router.get('/new', isLoggedIn, budgetCtrl.new);
+router.get('/', isLoggedIn, budgetCtrl.index);
+router.post('/', isLoggedIn, budgetCtrl.create);
+router.get('/:id', isLoggedIn, budgetCtrl.show)
+router.delete('/:id', isLoggedIn, budgetCtrl.delete)
+router.get('/:id/edit', isLoggedIn, budgetCtrl.edit)
+router.put('/:id', isLoggedIn, budgetCtrl.update)
 
 module.exports = router;

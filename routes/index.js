@@ -15,7 +15,9 @@ router.get('/', function(req, res) {
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(
   'google',
-  { scope: ['profile', 'email'], }
+  { scope: ['profile', 'email'], 
+      prompt: "select_account"
+  }
 ));
 
 // Google OAuth callback route
@@ -23,7 +25,7 @@ router.get('/oauth2callback', passport.authenticate(
   'google',
   {
     successRedirect : '/budgets', // UPDATE THIS, where do you want the client to go after you login 
-    failureRedirect : '/budgets' //  UPDATE THIS, where do you want the client to go if login fails
+    failureRedirect : '/' //  UPDATE THIS, where do you want the client to go if login fails
   }
 ));
 

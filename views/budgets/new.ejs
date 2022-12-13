@@ -12,10 +12,23 @@
 <body>
     <h2>Your Budgeting Journey Starts Here!</h2>
     <form action="/budgets" method="POST">
-        <label>Name this budget (ex: Month):
-            <input type="text" name="title"></label>
+        <label>Month:
+        <select name="month">
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March" >March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July"> >July</option>
+            <option value="August"> >August</option>
+            <option value="September"%> >September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select>
             <br>
-        <label>Total amount to budget:</label>
+        <label>Expected income:</label>
             <input type="number" name="amount">
         </label><br>
         <input type="submit" value="Start Budget">

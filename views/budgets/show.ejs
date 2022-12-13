@@ -13,24 +13,33 @@
 <section>
   <table>
       <tr>
+        <th>Category</th>
         <th>Description</th>
         <th>Amount</th>
-        <th>Date</th>
+        
       </tr>
     <tbody>
         <a href="./<%= budget._id %>/transactions/new">New Transaction</a>
-
+        <% let transactionSum = 0; %> 
       <% transactions.forEach(function(t) { %>
-          <tr>
+          <% transactionSum += t.amount %> 
+        <tr>
             <td><a href="/transactions/<%= t._id %>/edit">Edit</a></td>
+            <td><%= t.category %></td>
             <td><%= t.description %></td>
             <td><%= t.amount %></td>
-            <td><%= t.date %></td>
+            
             <td><form action= "/budgets/<%= t._id %>/transactions?_method=DELETE" method="POST" id="deletetransaction">
                 <button type="submit">DELETE</button>
+                
             </form></td>
           </tr>
         <% }); %>
     </tbody>
   </table>
 </section>
+<br><br>
+<div>Transactions Sum:</div>
+<div> $<%= transactionSum %> </div>
+<div>Remainder:</div>
+<div>$<%= budget.amount - transactionSum %> </div>

@@ -1,20 +1,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const planningSchema = new Schema({
-    category: {
-        type: String,
-        enum: ["Housing","Transportation","Food","Utilities","Insurance","Healthcare","Saving","Debt","Personal","Entertainment","Other"]
-    },
-    amount: {type: Number, min: 0},
-})
 
 const budgetSchema = new Schema({
-        title: {
+        month: {
             type: String,
+            enum: ["January","February","March","April","May","June","July","August","September","October","November","December",]
         },
         amount: {type: Number, min: 0},
-        category: [planningSchema],
+        user: {type: Schema.Types.ObjectId, ref: "User"},
         transactions: [{type: Schema.Types.ObjectId, ref: "Transaction"}]
 })
 
