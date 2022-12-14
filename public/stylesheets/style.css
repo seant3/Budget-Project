@@ -2,7 +2,7 @@
 
 nav {
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-color: #7bda93;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -21,7 +21,7 @@ nav > a:hover {
 }
 
 nav > a.active {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .brand-logo {
