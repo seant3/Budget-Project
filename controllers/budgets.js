@@ -13,7 +13,7 @@ module.exports = {
 
 async function update (req, res, next) {
     try {
-        const updateDoc = await Budget.updateOne({_id: req.params.id}, {
+        const updateDoc = await Budget.updateOne({_id: req.params.id, 'user': req.user._id}, {
             title: req.body.month,
             amount: req.body.amount
         })

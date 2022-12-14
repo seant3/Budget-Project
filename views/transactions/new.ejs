@@ -5,9 +5,7 @@
 <body>
     <h2>Input your transactions here!</h2>
     <form method="POST" action="/budgets/<%= budgetID %>/transactions ">
-        <label>Description
-            <input type="text" name="description">
-        </label><br>
+        
         <label>Category
             <select name="category">
                 <option value="Housing">Housing</option>
@@ -22,7 +20,10 @@
                 <option value="Entertainment">November</option>
                 <option value="Other">December</option>
             </select>
-        </label>
+        </label><br>
+        <label>Description
+            <input type="text" name="description">
+        </label><br>
         <label>Amount
             <input type="number" name="amount" min:0>
         </label><br>

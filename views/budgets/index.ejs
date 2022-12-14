@@ -10,7 +10,7 @@
     <title>Budget Homepage</title>
 </head>
 <body>
-    <h1>Budget List</h1>
+    <!-- <h1>Budget List</h1>
     <table>
       <thead>
         <tr>
@@ -18,21 +18,28 @@
           <th>Amount</th>
         </tr>
       </thead>
-      <tbody>
-        <% budgets.forEach(b => { %>
-          <tr>
-           
-            <td><a href="/budgets/<%= b._id %>/edit ">Edit</a></td>
-            <td><%= b.month %></td>
-            <td>$<%= b.amount %></td>
-            <td><a href="/budgets/<%= b._id %> ">Details</a></td>
-            <td><form action=<%= `/budgets/${b._id}/?_method=DELETE` %> method="POST" id="deleteBudget">
-                <button type="submit">DELETE</button>
-            </form></td>
-       
-          </tr>
-        <% }) %>
-      </tbody>
-    </table>
+      <tbody> -->
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <!-- <div class="card-group"> -->
+          <% budgets.forEach(b => { %>
+            <!-- <div class="card" style="width: 15rem;" -->
+              <!-- <div class="row">
+                <div class="col-sm-6"> -->
+              <div class="col">
+             <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><%= b.month %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Budget Amount: $<%= b.amount %></h6>
+                  <a href="/budgets/<%= b._id %>/edit " class="card-link">Edit</a>
+                  <a href="/budgets/<%= b._id %> " class="card-link">Details</a>
+                </br></br>
+                  <form action=<%= `/budgets/${b._id}/?_method=DELETE` %> method="POST" id="deleteBudget">
+                    <button type="submit" class="card-footer bg-transparent border-success">DELETE</button>
+                </form>
+                </div>
+              </div>
+            </div>            
+          <% }) %>
+        </div>
 </body>
 </html>
