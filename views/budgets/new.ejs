@@ -10,10 +10,13 @@
     <title>New Budget</title>
 </head>
 <body>
-    <h2>Your Budgeting Journey Starts Here!</h2>
-    <form action="/budgets" method="POST">
-        <label>Month:
-        <select name="month">
+</br></br></br></br></br></br></br>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+         <h2 class="display-5">Your Budgeting Journey Starts Here!</h2>
+         <form action="/budgets" method="POST">
+         <label>Month:
+         <select name="month">
             <option value="January">January</option>
             <option value="February">February</option>
             <option value="March" >March</option>
@@ -32,6 +35,8 @@
             <input type="number" name="amount">
         </label><br>
         <input type="submit" value="Start Budget">
-    </form>
+        </form>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,33 +1,41 @@
 
 
 <%- include('../partials/header') %>
-
-    <div>Budget Month:</div>
-    <div><%= budget.month %> </div>
-    <div>Budgeted Amount:</div>
-        
-    <div>$<%= budget.amount %> </div>
-
-
-</br></br><div>Transactions:</div>
-<section>
-  <table>
-      <tr>
-        <th>Category</th>
-        <th>Description</th>
-        <th>Amount</th>
-        
-      </tr>
-    <tbody>
-        <a href="./<%= budget._id %>/transactions/new">New Transaction</a>
-        <% let transactionSum = 0; %> 
-      <% transactions.forEach(function(t) { %>
-          <% transactionSum += t.amount %> 
-        <tr>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="display-6"><u>Budget Month</u></div>
+      <div><%= budget.month %> </div>
+    </br></br>
+      <div class="display-6"><u>Budgeted</u></div>
+      
+      <div>$<%= budget.amount %> </div>
+    </br></br>
+      </div>
+      <div class="col-sm">
+        <div class="display-6"><u>Transactions</u></div>
+        <div> <a href="./<%= budget._id %>/transactions/new">New Transaction</a></th></div>
+        <section>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Category</th>
+                <th scope="col">Description</th>
+                <th scope="col">Amount</th>
+            </tr>
+          </thead>
+        <tbody>
+          <tr>
+    
+            <% let transactionSum = 0; %> 
+            <% transactions.forEach(function(t) { %>
+            <% transactionSum += t.amount %> 
+          <tr>
             <td><a href="/transactions/<%= t._id %>/edit">Edit</a></td>
             <td><%= t.category %></td>
             <td><%= t.description %></td>
-            <td><%= t.amount %></td>
+            <td>$<%= t.amount %></td>
             
             <td><form action= "/budgets/<%= t._id %>/transactions?_method=DELETE" method="POST" id="deletetransaction">
                 <button type="submit">DELETE</button>
@@ -38,8 +46,17 @@
     </tbody>
   </table>
 </section>
-<br><br>
-<div>Transactions Sum:</div>
-<div> $<%= transactionSum %> </div>
-<div>Remainder:</div>
-<div>$<%= budget.amount - transactionSum %> </div>
+      </div>
+    </div>
+  </div>
+  </div>
+    
+</div>
+
+
+<div class="container">
+  <div class="display-6"><u>Trans Total</u></div>
+  <div> $<%= transactionSum %> </div></br></br>
+  <div class="display-6"><u>Remainder</u></div>
+  <div>$<%= budget.amount - transactionSum %> </div>
+</div>

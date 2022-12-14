@@ -4,7 +4,10 @@
 <title>Edit Transaction</title>
 </head>
 <body>
-    <h2>Edit your transaction</h2>
+</br></br></br></br></br></br></br>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+    <h2 class="display-5">Edit your transaction</h2>
     <form action="/transactions/<%= edit._id %>?_method=PUT" method="POST">
         <label>Description
             <input type="text" name="description" value=<%= edit.description %>>
@@ -14,5 +17,7 @@
         </label><br>
         <input type="submit" value="Edit Transaction">
     </form>
+    </div>
+</div>
 </body>
 </html>
