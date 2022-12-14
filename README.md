@@ -6,4 +6,23 @@ Within this application, you will be able to do just that: easily create new bud
 
 The app will track and display the difference between your budget and your expenses, updating live as you input each transaction.
 
-**Screenshots**
+**Screenshots:**
+
+![Homepage/Logged out screen](public/images/BudgetTime_LoggedOut.png)
+
+![Logged In/Index Page](public/images/BudgetTime_BudgetIndex.png)
+
+**Technologies Used:**
+
+Javascript, EJS, Express, HTML, Bootstrap, Mongoose, MongoDB, Passport
+
+Planning: [Planning Materials/User Stories/Wireframes](https://trello.com/b/TlMscQmK/project-2-budgetapp-sei-10-31)
+
+**Getting Started:** [Budget Time - CRUD app project](https://cyan-shy-jackrabbit.cyclic.app/)
+
+**Next Steps:**
+
+* Create static expenses that will apear each month without reinputing them
+* Show debt/credit cards separately from expenses
+* More streamlined categories/sub categories to just click on
+* Visual that shows yearly bread down of income vs spending vs investments
